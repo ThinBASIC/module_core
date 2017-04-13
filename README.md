@@ -1,2 +1,2 @@
-# module_core
-Includes required for thinBasic module development in PowerBASIC
+# Module core
+Includes required for thinBasic module development in PowerBASIC.
