@@ -1,0 +1,12 @@
+*.tbasic eol=crlf
+*.tbasicc eol=crlf
+*.tbasicu eol=crlf
+*.tbasici eol=crlf
+*.bas eol=crlf
+*.Bas eol=crlf
+*.BAS eol=crlf
+*.inc eol=crlf
+*.Inc eol=crlf
+*.INC eol=crlf
+*.rc eol=crlf
+*.h
