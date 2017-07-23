@@ -12,6 +12,11 @@
 
 */
 
+#ifndef PB_RESOURCE_H
+  #define VOS_WINDOWS32           0x00000004L
+  #define VFT_DLL                 0x00000002L     
+#endif
+
 
 /* COMMON FOR ALL MODULES */
 #define  THIN_COMMON_COMPANYNAME      "thinBasic\0"
@@ -1395,4 +1400,6 @@
 #define  THINBASIC_IRRLICHT_DLL_INTERNALNAME        "thinBasic Irrlicht\0"
 #define  THINBASIC_IRRLICHT_DLL_FILEDESCRIPTION     "ThinBasic Irrlicht Engine Support Module\0"
 #define  THINBASIC_IRRLICHT_DLL_ORIGINALFILENAME    "ThinBasic_Irrlicht.dll\0"
-#define  THINBASIC_IRRLICHT_DLL_PRODUCTNAME         "ThinBasic Irrlicht\0"
+#define  THINBASIC_IRRLICHT_DLL_PRODUCTNAME         "ThinBasic Irrlicht\0"    
+
+
