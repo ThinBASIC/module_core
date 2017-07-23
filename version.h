@@ -11,10 +11,15 @@
     RevisionNumber(QFE) = 1
 
 */
-
+#ifdef VOS_WINDOWS32
+	#undef VOS_WINDOWS32
+#endif
 #define VOS_WINDOWS32           0x00000004L
-#define VFT_DLL                 0x00000002L
 
+#ifdef VFT_DLL
+	#undef VFT_DLL
+#endif
+#define VFT_DLL                 0x00000002L
 
 /* COMMON FOR ALL MODULES */
 #define  THIN_COMMON_COMPANYNAME      "thinBasic\0"
@@ -1399,3 +1404,4 @@
 #define  THINBASIC_IRRLICHT_DLL_FILEDESCRIPTION     "ThinBasic Irrlicht Engine Support Module\0"
 #define  THINBASIC_IRRLICHT_DLL_ORIGINALFILENAME    "ThinBasic_Irrlicht.dll\0"
 #define  THINBASIC_IRRLICHT_DLL_PRODUCTNAME         "ThinBasic Irrlicht\0"
+
