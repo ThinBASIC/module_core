@@ -23,8 +23,8 @@
 
 /* COMMON FOR ALL MODULES */
 #define  THIN_COMMON_COMPANYNAME      "thinBasic\0"
-#define  THIN_COMMON_LEGALCOPYRIGHT   "(c) 2004-2017 thinBasic.com\0"
-#define  THIN_COMMON_COMMENT          "Support site: http://www.thinbasic.com\0"
+#define  THIN_COMMON_LEGALCOPYRIGHT   "Copyright 2004-2020 by thinBasic\0"
+#define  THIN_COMMON_COMMENT          "Support site: https://www.thinbasic.com\0"
 
 
 /* Force the same version number to all modules */
@@ -68,6 +68,25 @@
 #define  THINBASIC_ADODB_FILEDESCRIPTION    "thinBasic ADODB Library\0"
 #define  THINBASIC_ADODB_ORIGINALFILENAME   "thinBasic_ADODB.dll\0"
 #define  THINBASIC_ADODB_PRODUCTNAME        "thinBasic ADODB\0"
+
+/* THINBASIC_APPLOG.Dll */
+#ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
+#define  THINBASIC_APPLOG_VERSIONMAJOR       THIN_VERSIONMAJOR
+#define  THINBASIC_APPLOG_VERSIONMINOR       THIN_VERSIONMINOR
+#define  THINBASIC_APPLOG_VERSIONBUILD       THIN_VERSIONBUILD
+#define  THINBASIC_APPLOG_VERSIONREVISION    THIN_VERSIONREVISION
+#define  THINBASIC_APPLOG_VERSIONLITERAL     THIN_VERSIONLITERAL
+#else
+#define  THINBASIC_APPLOG_VERSIONMAJOR       1
+#define  THINBASIC_APPLOG_VERSIONMINOR       0
+#define  THINBASIC_APPLOG_VERSIONBUILD       1
+#define  THINBASIC_APPLOG_VERSIONREVISION    1
+#define  THINBASIC_APPLOG_VERSIONLITERAL     "1.0.1.1\0"
+#endif
+#define  THINBASIC_APPLOG_INTERNALNAME       "thinBasic_AppLog\0"
+#define  THINBASIC_APPLOG_FILEDESCRIPTION    "thinBasic AppLog Output Log handling Library\0"
+#define  THINBASIC_APPLOG_ORIGINALFILENAME   "thinBasic_AppLog.dll\0"
+#define  THINBASIC_APPLOG_PRODUCTNAME        "thinBasic AppLog\0"
 
 /* THINBASIC_CGI.DLL */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
@@ -238,7 +257,7 @@
 #define  THINBASIC_COM_VERSIONLITERAL       "1.0.1.1\0"
 #endif
 #define  THINBASIC_COM_INTERNALNAME             "thinBasic_COM\0"
-#define  THINBASIC_COM_FILEDESCRIPTION              "thinBasic COM (Components Object Model) File Library\0"
+#define  THINBASIC_COM_FILEDESCRIPTION          "thinBasic COM (Components Object Model) File Library\0"
 #define  THINBASIC_COM_ORIGINALFILENAME         "thinBasic_COM.dll\0"
 #define  THINBASIC_COM_PRODUCTNAME              "thinBasic Components Object Model File Library\0"
 
@@ -257,9 +276,30 @@
 #define  THINBASIC_COMM_VERSIONLITERAL      "1.0.1.1\0"
 #endif
 #define  THINBASIC_COMM_INTERNALNAME            "thinBasic_COMM\0"
-#define  THINBASIC_COMM_FILEDESCRIPTION             "thinBasic COMM (Serial Communication) File Library\0"
-#define  THINBASIC_COMM_ORIGINALFILENAME         "thinBasic_COMM.dll\0"
-#define  THINBASIC_COMM_PRODUCTNAME              "thinBasic Serial Communication File Library\0"
+#define  THINBASIC_COMM_FILEDESCRIPTION         "thinBasic COMM (Serial Communication) File Library\0"
+#define  THINBASIC_COMM_ORIGINALFILENAME        "thinBasic_COMM.dll\0"
+#define  THINBASIC_COMM_PRODUCTNAME             "thinBasic Serial Communication File Library\0"
+
+
+/* THINBASIC_CURL.DLL */
+#ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
+#define  THINBASIC_CURL_VERSIONMAJOR             THIN_VERSIONMAJOR
+#define  THINBASIC_CURL_VERSIONMINOR             THIN_VERSIONMINOR
+#define  THINBASIC_CURL_VERSIONBUILD             THIN_VERSIONBUILD
+#define  THINBASIC_CURL_VERSIONREVISION          THIN_VERSIONREVISION
+#define  THINBASIC_CURL_VERSIONLITERAL           THIN_VERSIONLITERAL
+#else
+#define  THINBASIC_CURL_VERSIONMAJOR            1
+#define  THINBASIC_CURL_VERSIONMINOR        0
+#define  THINBASIC_CURL_VERSIONBUILD        1
+#define  THINBASIC_CURL_VERSIONREVISION     1
+#define  THINBASIC_CURL_VERSIONLITERAL      "1.0.1.1\0"
+#endif
+#define  THINBASIC_CURL_INTERNALNAME            "thinBasic_CURL\0"
+#define  THINBASIC_CURL_FILEDESCRIPTION         "thinBasic Curl wrapper Library\0"
+#define  THINBASIC_CURL_ORIGINALFILENAME        "thinBasic_CURL.dll\0"
+#define  THINBASIC_CURL_PRODUCTNAME             "thinBasic Curl wrapper Library\0"
+
 
 /* THINBASIC_DATA.Dll */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
@@ -295,9 +335,9 @@
 #define  THINBASIC_EVAL_VERSIONLITERAL      "1.0.1.1\0"
 #endif
 #define  THINBASIC_EVAL_INTERNALNAME            "thinBasic_Eval\0"
-#define  THINBASIC_EVAL_FILEDESCRIPTION             "thinBasic Eval Library\0"
-#define  THINBASIC_EVAL_ORIGINALFILENAME         "thinBasic_Eval.dll\0"
-#define  THINBASIC_EVAL_PRODUCTNAME              "thinBasic Eval\0"
+#define  THINBASIC_EVAL_FILEDESCRIPTION         "thinBasic Eval Library\0"
+#define  THINBASIC_EVAL_ORIGINALFILENAME        "thinBasic_Eval.dll\0"
+#define  THINBASIC_EVAL_PRODUCTNAME             "thinBasic Eval\0"
 
 /* THINBASIC_FILE.DLL */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
@@ -313,10 +353,10 @@
 #define  THINBASIC_FILE_VERSIONREVISION      1
 #define  THINBASIC_FILE_VERSIONLITERAL       "1.0.1.1\0"
 #endif
-#define  THINBASIC_FILE_INTERNALNAME             "thinBasic_File\0"
+#define  THINBASIC_FILE_INTERNALNAME         "thinBasic_File\0"
 #define  THINBASIC_FILE_FILEDESCRIPTION      "thinBasic File Support Library\0"
-#define  THINBASIC_FILE_ORIGINALFILENAME         "thinBasic_File.dll\0"
-#define  THINBASIC_FILE_PRODUCTNAME              "thinBasic File\0"
+#define  THINBASIC_FILE_ORIGINALFILENAME     "thinBasic_File.dll\0"
+#define  THINBASIC_FILE_PRODUCTNAME          "thinBasic File\0"
 
 /* THINBASIC_FTP.DLL */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
@@ -333,7 +373,7 @@
 #define  THINBASIC_FTP_VERSIONLITERAL       "1.0.1.1\0"
 #endif
 #define  THINBASIC_FTP_INTERNALNAME             "thinBasic_FTP\0"
-#define  THINBASIC_FTP_FILEDESCRIPTION              "thinBasic File Transfer Protocol Library\0"
+#define  THINBASIC_FTP_FILEDESCRIPTION          "thinBasic File Transfer Protocol Library\0"
 #define  THINBASIC_FTP_ORIGINALFILENAME         "thinBasic_FTP.dll\0"
 #define  THINBASIC_FTP_PRODUCTNAME              "thinBasic File Transfer Protocol\0"
 
@@ -351,10 +391,10 @@
 #define  THINBASIC_GDIPLUS_VERSIONREVISION      1
 #define  THINBASIC_GDIPLUS_VERSIONLITERAL      "1.0.1.1\0"
 #endif
-#define  THINBASIC_GDIPLUS_INTERNALNAME             "thinBasic_GDIPLUS\0"
+#define  THINBASIC_GDIPLUS_INTERNALNAME         "thinBasic_GDIPLUS\0"
 #define  THINBASIC_GDIPLUS_FILEDESCRIPTION      "thinBasic GDIPLUS Library\0"
-#define  THINBASIC_GDIPLUS_ORIGINALFILENAME         "thinBasic_GDIPLUS.dll\0"
-#define  THINBASIC_GDIPLUS_PRODUCTNAME              "thinBasic GDIPLUS\0"
+#define  THINBASIC_GDIPLUS_ORIGINALFILENAME     "thinBasic_GDIPLUS.dll\0"
+#define  THINBASIC_GDIPLUS_PRODUCTNAME          "thinBasic GDIPLUS\0"
 
 /* THINIMG.Dll */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
@@ -409,10 +449,10 @@
 #define  THINBASIC_INET_VERSIONREVISION      1
 #define  THINBASIC_INET_VERSIONLITERAL       "1.0.1.1\0"
 #endif
-#define  THINBASIC_INET_INTERNALNAME             "thinBasic_INet\0"
+#define  THINBASIC_INET_INTERNALNAME         "thinBasic_INet\0"
 #define  THINBASIC_INET_FILEDESCRIPTION      "thinBasic Internet Library\0"
-#define  THINBASIC_INET_ORIGINALFILENAME         "thinBasic_INet.dll\0"
-#define  THINBASIC_INET_PRODUCTNAME              "thinBasic Internet\0"
+#define  THINBASIC_INET_ORIGINALFILENAME     "thinBasic_INet.dll\0"
+#define  THINBASIC_INET_PRODUCTNAME          "thinBasic Internet\0"
 
 /* THINBASIC_INI.DLL */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
@@ -429,9 +469,28 @@
 #define  THINBASIC_INI_VERSIONLITERAL       "1.0.1.1\0"
 #endif
 #define  THINBASIC_INI_INTERNALNAME             "thinBasic_INI\0"
-#define  THINBASIC_INI_FILEDESCRIPTION              "thinBasic INI File Library\0"
+#define  THINBASIC_INI_FILEDESCRIPTION          "thinBasic INI File Library\0"
 #define  THINBASIC_INI_ORIGINALFILENAME         "thinBasic_INI.dll\0"
 #define  THINBASIC_INI_PRODUCTNAME              "thinBasic INI File\0"
+
+/* THINBASIC_MMF.DLL */
+#ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
+#define  THINBASIC_MMF_VERSIONMAJOR             THIN_VERSIONMAJOR
+#define  THINBASIC_MMF_VERSIONMINOR             THIN_VERSIONMINOR
+#define  THINBASIC_MMF_VERSIONBUILD             THIN_VERSIONBUILD
+#define  THINBASIC_MMF_VERSIONREVISION          THIN_VERSIONREVISION
+#define  THINBASIC_MMF_VERSIONLITERAL           THIN_VERSIONLITERAL
+#else
+#define  THINBASIC_MMF_VERSIONMAJOR             1
+#define  THINBASIC_MMF_VERSIONMINOR                 0
+#define  THINBASIC_MMF_VERSIONBUILD         1
+#define  THINBASIC_MMF_VERSIONREVISION      1
+#define  THINBASIC_MMF_VERSIONLITERAL       "1.0.1.1\0"
+#endif
+#define  THINBASIC_MMF_INTERNALNAME             "thinBasic_MMF\0"
+#define  THINBASIC_MMF_FILEDESCRIPTION          "thinBasic MMF Memory Mapped File Library\0"
+#define  THINBASIC_MMF_ORIGINALFILENAME         "thinBasic_MMF.dll\0"
+#define  THINBASIC_MMF_PRODUCTNAME              "thinBasic MMF File\0"
 
 /* THINBASIC_LL.DLL */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
@@ -466,10 +525,10 @@
 #define  THINBASIC_MATH_VERSIONREVISION         1
 #define  THINBASIC_MATH_VERSIONLITERAL          "1.0.1.1\0"
 #endif
-#define  THINBASIC_MATH_INTERNALNAME           "thinBasic_Math\0"
+#define  THINBASIC_MATH_INTERNALNAME          "thinBasic_Math\0"
 #define  THINBASIC_MATH_FILEDESCRIPTION       "thinBasic Math Library\0"
-#define  THINBASIC_MATH_ORIGINALFILENAME       "thinBasic_Math.dll\0"
-#define  THINBASIC_MATH_PRODUCTNAME            "thinBasic Math\0"
+#define  THINBASIC_MATH_ORIGINALFILENAME      "thinBasic_Math.dll\0"
+#define  THINBASIC_MATH_PRODUCTNAME           "thinBasic Math\0"
 
 
 /* THINBASIC_WINMM.DLL */
@@ -522,10 +581,10 @@
 #define  THINBASIC_ODBC_VERSIONREVISION      1
 #define  THINBASIC_ODBC_VERSIONLITERAL       "1.0.1.1\0"
 #endif
-#define  THINBASIC_ODBC_INTERNALNAME             "thinBasic_ODBC\0"
+#define  THINBASIC_ODBC_INTERNALNAME         "thinBasic_ODBC\0"
 #define  THINBASIC_ODBC_FILEDESCRIPTION      "thinBasic Open Database Connectivity Library\0"
-#define  THINBASIC_ODBC_ORIGINALFILENAME         "thinBasic_ODBC.dll\0"
-#define  THINBASIC_ODBC_PRODUCTNAME              "thinBasic Open Database Connectivity\0"
+#define  THINBASIC_ODBC_ORIGINALFILENAME     "thinBasic_ODBC.dll\0"
+#define  THINBASIC_ODBC_PRODUCTNAME          "thinBasic Open Database Connectivity\0"
 
 /* THINBASIC_ONLINESCORES.DLL */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
@@ -541,10 +600,10 @@
 #define  THINBASIC_ONLINESCORES_VERSIONREVISION      1
 #define  THINBASIC_ONLINESCORES_VERSIONLITERAL       "1.0.1.1\0"
 #endif
-#define  THINBASIC_ONLINESCORES_INTERNALNAME             "thinBasic_OnLineScores\0"
+#define  THINBASIC_ONLINESCORES_INTERNALNAME         "thinBasic_OnLineScores\0"
 #define  THINBASIC_ONLINESCORES_FILEDESCRIPTION      "thinBasic OnLineScores System Library\0"
-#define  THINBASIC_ONLINESCORES_ORIGINALFILENAME         "thinBasic_OnLineScores.dll\0"
-#define  THINBASIC_ONLINESCORES_PRODUCTNAME              "thinBasic OnLineScores system\0"
+#define  THINBASIC_ONLINESCORES_ORIGINALFILENAME     "thinBasic_OnLineScores.dll\0"
+#define  THINBASIC_ONLINESCORES_PRODUCTNAME          "thinBasic OnLineScores system\0"
 
 /* THINBASIC_OS.DLL */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
@@ -617,10 +676,10 @@
 #define  THINBASIC_PC9x_VERSIONREVISION          1
 #define  THINBASIC_PC9x_VERSIONLITERAL           "1.0.1.1\0"
 #endif
-#define  THINBASIC_PC9x_INTERNALNAME             "thinBasic_PC9x\0"
+#define  THINBASIC_PC9x_INTERNALNAME         "thinBasic_PC9x\0"
 #define  THINBASIC_PC9x_FILEDESCRIPTION      "thinBasic Personal Computer Management Library for Windows 95/98/ME\0"
-#define  THINBASIC_PC9x_ORIGINALFILENAME         "thinBasic_PC9x.dll\0"
-#define  THINBASIC_PC9x_PRODUCTNAME              "thinBasic Personal Computer Management for Windows 95/98/ME\0"
+#define  THINBASIC_PC9x_ORIGINALFILENAME     "thinBasic_PC9x.dll\0"
+#define  THINBASIC_PC9x_PRODUCTNAME          "thinBasic Personal Computer Management for Windows 95/98/ME\0"
 
 /* THINBASIC_PDF.DLL */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
@@ -637,7 +696,7 @@
 #define  THINBASIC_PDF_VERSIONLITERAL       "1.0.1.1\0"
 #endif
 #define  THINBASIC_PDF_INTERNALNAME             "thinBasic_PDF\0"
-#define  THINBASIC_PDF_FILEDESCRIPTION              "thinBasic Portable Document Format Library\0"
+#define  THINBASIC_PDF_FILEDESCRIPTION          "thinBasic Portable Document Format Library\0"
 #define  THINBASIC_PDF_ORIGINALFILENAME         "thinBasic_PDF.dll\0"
 #define  THINBASIC_PDF_PRODUCTNAME              "thinBasic Portable Document Format\0"
 
@@ -656,7 +715,7 @@
 #define  THINBASIC_RAS_VERSIONLITERAL       "1.0.1.1\0"
 #endif
 #define  THINBASIC_RAS_INTERNALNAME             "thinBasic_RAS\0"
-#define  THINBASIC_RAS_FILEDESCRIPTION              "thinBasic Remote Acces System Library\0"
+#define  THINBASIC_RAS_FILEDESCRIPTION          "thinBasic Remote Acces System Library\0"
 #define  THINBASIC_RAS_ORIGINALFILENAME         "thinBasic_RAS.dll\0"
 #define  THINBASIC_RAS_PRODUCTNAME              "thinBasic Remote Acces System\0"
 
@@ -674,10 +733,10 @@
 #define  THINBASIC_REGISTRY_VERSIONREVISION     1
 #define  THINBASIC_REGISTRY_VERSIONLITERAL      "1.0.1.1\0"
 #endif
-#define  THINBASIC_REGISTRY_INTERNALNAME    "thinBasic_REGISTRY\0"
-#define  THINBASIC_REGISTRY_FILEDESCRIPTION     "thinBasic Registry Management Library\0"
-#define  THINBASIC_REGISTRY_ORIGINALFILENAME    "thinBasic_REGISTRY.dll\0"
-#define  THINBASIC_REGISTRY_PRODUCTNAME         "thinBasic Registry Management\0"
+#define  THINBASIC_REGISTRY_INTERNALNAME       "thinBasic_REGISTRY\0"
+#define  THINBASIC_REGISTRY_FILEDESCRIPTION    "thinBasic Registry Management Library\0"
+#define  THINBASIC_REGISTRY_ORIGINALFILENAME   "thinBasic_REGISTRY.dll\0"
+#define  THINBASIC_REGISTRY_PRODUCTNAME        "thinBasic Registry Management\0"
 
 /* THINBASIC_SAPI.DLL */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
@@ -771,7 +830,7 @@
 #define  THINBASIC_SQL_VERSIONLITERAL       "1.0.1.1\0"
 #endif
 #define  THINBASIC_SQL_INTERNALNAME             "thinBasic_SQL\0"
-#define  THINBASIC_SQL_FILEDESCRIPTION              "thinBasic Structured Query Language Library\0"
+#define  THINBASIC_SQL_FILEDESCRIPTION          "thinBasic Structured Query Language Library\0"
 #define  THINBASIC_SQL_ORIGINALFILENAME         "thinBasic_SQL.dll\0"
 #define  THINBASIC_SQL_PRODUCTNAME              "thinBasic Structured Query Language\0"
 
@@ -848,8 +907,8 @@
 #endif
 #define  THINBASIC_TCPUDP_INTERNALNAME         "thinBasic_TCPUDP\0"
 #define  THINBASIC_TCPUDP_FILEDESCRIPTION      "thinBasic Transmission Control Protocol and User Datagram Protocol Library\0"
-#define  THINBASIC_TCPUDP_ORIGINALFILENAME         "thinBasic_TCPUDP.dll\0"
-#define  THINBASIC_TCPUDP_PRODUCTNAME              "thinBasic Transmission Control Protocol and User Datagram Protocol\0"
+#define  THINBASIC_TCPUDP_ORIGINALFILENAME     "thinBasic_TCPUDP.dll\0"
+#define  THINBASIC_TCPUDP_PRODUCTNAME          "thinBasic Transmission Control Protocol and User Datagram Protocol\0"
 
 /* THINBASIC_TIMAGE.DLL */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
@@ -865,8 +924,8 @@
 #define  THINBASIC_TIMAGE_VERSIONREVISION    1
 #define  THINBASIC_TIMAGE_VERSIONLITERAL     "1.0.1.1\0"
 #endif
-#define  THINBASIC_TIMAGE_INTERNALNAME               "thinBasic_TIMAGE\0"
-#define  THINBASIC_TIMAGE_FILEDESCRIPTION            "thinBasic TIMAGE Library based on PBIMAGE.DLL By Dean Hodgson\0"
+#define  THINBASIC_TIMAGE_INTERNALNAME             "thinBasic_TIMAGE\0"
+#define  THINBASIC_TIMAGE_FILEDESCRIPTION          "thinBasic TIMAGE Library based on PBIMAGE.DLL By Dean Hodgson\0"
 #define  THINBASIC_TIMAGE_ORIGINALFILENAME         "thinBasic_TIMAGE.dll\0"
 #define  THINBASIC_TIMAGE_PRODUCTNAME              "thinBasic TBASS\0"
 
@@ -885,8 +944,8 @@
 #define  THINBASIC_TOKENIZER_VERSIONREVISION    1
 #define  THINBASIC_TOKENIZER_VERSIONLITERAL     "1.0.1.1\0"
 #endif
-#define  THINBASIC_TOKENIZER_INTERNALNAME               "thinBasic_Tokenizer\0"
-#define  THINBASIC_TOKENIZER_FILEDESCRIPTION            "thinBasic Tokenizer Library\0"
+#define  THINBASIC_TOKENIZER_INTERNALNAME             "thinBasic_Tokenizer\0"
+#define  THINBASIC_TOKENIZER_FILEDESCRIPTION          "thinBasic Tokenizer Library\0"
 #define  THINBASIC_TOKENIZER_ORIGINALFILENAME         "thinBasic_Tokenizer.dll\0"
 #define  THINBASIC_TOKENIZER_PRODUCTNAME              "thinBasic Tokenizer\0"
 
@@ -904,10 +963,10 @@
 #define  THINBASIC_TRACE_VERSIONREVISION      1
 #define  THINBASIC_TRACE_VERSIONLITERAL      "1.0.1.1\0"
 #endif
-#define  THINBASIC_TRACE_INTERNALNAME             "thinBasic_TRACE\0"
+#define  THINBASIC_TRACE_INTERNALNAME         "thinBasic_TRACE\0"
 #define  THINBASIC_TRACE_FILEDESCRIPTION      "thinBasic TRACE Library\0"
-#define  THINBASIC_TRACE_ORIGINALFILENAME         "thinBasic_TRACE.dll\0"
-#define  THINBASIC_TRACE_PRODUCTNAME              "thinBasic TRACE\0"
+#define  THINBASIC_TRACE_ORIGINALFILENAME     "thinBasic_TRACE.dll\0"
+#define  THINBASIC_TRACE_PRODUCTNAME          "thinBasic TRACE\0"
 
 
 /* THINBASIC_UI.DLL */
@@ -1001,9 +1060,9 @@
 #define  THINBASIC_VBREGEXP_VERSIONLITERAL      "1.0.1.1\0"
 #endif
 #define  THINBASIC_VBREGEXP_INTERNALNAME            "thinBasic_VBREGEXP\0"
-#define  THINBASIC_VBREGEXP_FILEDESCRIPTION             "thinBasic VB Regular Expression wrap Library\0"
-#define  THINBASIC_VBREGEXP_ORIGINALFILENAME         "thinBasic_VBREGEXP.dll\0"
-#define  THINBASIC_VBREGEXP_PRODUCTNAME              "thinBasic VBREGEXP File\0"
+#define  THINBASIC_VBREGEXP_FILEDESCRIPTION         "thinBasic VB Regular Expression wrap Library\0"
+#define  THINBASIC_VBREGEXP_ORIGINALFILENAME        "thinBasic_VBREGEXP.dll\0"
+#define  THINBASIC_VBREGEXP_PRODUCTNAME             "thinBasic VBREGEXP File\0"
 
 /* THINBASIC_WINUTILS.DLL */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
@@ -1019,7 +1078,7 @@
 #define  THINBASIC_WINUTILS_VERSIONREVISION     1
 #define  THINBASIC_WINUTILS_VERSIONLITERAL      "1.0.1.1\0"
 #endif
-#define  THINBASIC_WINUTILS_INTERNALNAME    "thinBasic_WINUTILS\0"
+#define  THINBASIC_WINUTILS_INTERNALNAME        "thinBasic_WINUTILS\0"
 #define  THINBASIC_WINUTILS_FILEDESCRIPTION     "thinBasic Windows Utilities Library\0"
 #define  THINBASIC_WINUTILS_ORIGINALFILENAME    "thinBasic_WINUTILS.dll\0"
 #define  THINBASIC_WINUTILS_PRODUCTNAME         "thinBasic Windows Utilities\0"
@@ -1038,8 +1097,8 @@
 #define  THINBASIC_WMI_VERSIONREVISION    1
 #define  THINBASIC_WMI_VERSIONLITERAL     "1.0.1.1\0"
 #endif
-#define  THINBASIC_WMI_INTERNALNAME               "thinBasic_WMI\0"
-#define  THINBASIC_WMI_FILEDESCRIPTION            "thinBasic WMI Library\0"
+#define  THINBASIC_WMI_INTERNALNAME             "thinBasic_WMI\0"
+#define  THINBASIC_WMI_FILEDESCRIPTION          "thinBasic WMI Library\0"
 #define  THINBASIC_WMI_ORIGINALFILENAME         "thinBasic_WMI.dll\0"
 #define  THINBASIC_WMI_PRODUCTNAME              "thinBasic WMI\0"
 
@@ -1059,7 +1118,7 @@
 #define  THINBASIC_XML_VERSIONLITERAL       "1.0.1.1\0"
 #endif
 #define  THINBASIC_XML_INTERNALNAME             "thinBasic_XML\0"
-#define  THINBASIC_XML_FILEDESCRIPTION              "thinBasic Extensible Markup Language Library\0"
+#define  THINBASIC_XML_FILEDESCRIPTION          "thinBasic Extensible Markup Language Library\0"
 #define  THINBASIC_XML_ORIGINALFILENAME         "thinBasic_XML.dll\0"
 #define  THINBASIC_XML_PRODUCTNAME              "thinBasic Extensible Markup Language\0"
 
@@ -1077,8 +1136,8 @@
 #define  THINBASIC_XPRINT_VERSIONREVISION       1
 #define  THINBASIC_XPRINT_VERSIONLITERAL        "1.0.1.1\0"
 #endif
-#define  THINBASIC_XPRINT_INTERNALNAME              "thinBasic_XPRINT\0"
-#define  THINBASIC_XPRINT_FILEDESCRIPTION           "thinBasic Extended Printing Library\0"
+#define  THINBASIC_XPRINT_INTERNALNAME             "thinBasic_XPRINT\0"
+#define  THINBASIC_XPRINT_FILEDESCRIPTION          "thinBasic Extended Printing Library\0"
 #define  THINBASIC_XPRINT_ORIGINALFILENAME         "thinBasic_XPRINT.dll\0"
 #define  THINBASIC_XPRINT_PRODUCTNAME              "thinBasic Extended Printing Library\0"
 
@@ -1096,10 +1155,10 @@
 #define  THINBASIC_ZLIB_VERSIONREVISION      1
 #define  THINBASIC_ZLIB_VERSIONLITERAL      "1.0.1.1\0"
 #endif
-#define  THINBASIC_ZLIB_INTERNALNAME             "thinBasic_ZLIB\0"
+#define  THINBASIC_ZLIB_INTERNALNAME         "thinBasic_ZLIB\0"
 #define  THINBASIC_ZLIB_FILEDESCRIPTION      "thinBasic ZLIB Library\0"
-#define  THINBASIC_ZLIB_ORIGINALFILENAME         "thinBasic_ZLIB.dll\0"
-#define  THINBASIC_ZLIB_PRODUCTNAME              "thinBasic ZLIB\0"
+#define  THINBASIC_ZLIB_ORIGINALFILENAME     "thinBasic_ZLIB.dll\0"
+#define  THINBASIC_ZLIB_PRODUCTNAME          "thinBasic ZLIB\0"
 
 
 /* THINRES.DLL */
@@ -1238,7 +1297,7 @@
 /* THINBASICC.EXE */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
 #define  THINBASICC_VERSIONMAJOR                THIN_VERSIONMAJOR
-#define  THINBASlCC_VERSIONMINOR                THIN_VERSIONMINOR
+#define  THINBASICC_VERSIONMINOR                THIN_VERSIONMINOR
 #define  THINBASICC_VERSIONBUILD                THIN_VERSIONBUILD
 #define  THINBASICC_VERSIONREVISION             THIN_VERSIONREVISION
 #define  THINBASICC_VERSIONLITERAL              THIN_VERSIONLITERAL
@@ -1444,3 +1503,59 @@
 #define  THINBASIC_IRRLICHT_DLL_ORIGINALFILENAME    "ThinBasic_Irrlicht.dll\0"
 #define  THINBASIC_IRRLICHT_DLL_PRODUCTNAME         "ThinBasic Irrlicht\0"
 
+/* THINBASIC_APPCONFIG.Dll */
+#ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
+#define  THINBASIC_APPCONFIG_VERSIONMAJOR             THIN_VERSIONMAJOR
+#define  THINBASIC_APPCONFIG_VERSIONMINOR             THIN_VERSIONMINOR
+#define  THINBASIC_APPCONFIG_VERSIONBUILD             THIN_VERSIONBUILD
+#define  THINBASIC_APPCONFIG_VERSIONREVISION          THIN_VERSIONREVISION
+#define  THINBASIC_APPCONFIG_VERSIONLITERAL           THIN_VERSIONLITERAL
+#else
+#define  THINBASIC_APPCONFIG_VERSIONMAJOR             1
+#define  THINBASIC_APPCONFIG_VERSIONMINOR                 0
+#define  THINBASIC_APPCONFIG_VERSIONBUILD         1
+#define  THINBASIC_APPCONFIG_VERSIONREVISION      1
+#define  THINBASIC_APPCONFIG_VERSIONLITERAL       "1.0.1.1\0"
+#endif
+#define  THINBASIC_APPCONFIG_INTERNALNAME         "thinBasic_AppConfig\0"
+#define  THINBASIC_APPCONFIG_FILEDESCRIPTION      "thinBasic Application Configuration File Library\0"
+#define  THINBASIC_APPCONFIG_ORIGINALFILENAME     "thinBasic_AppConfig.dll\0"
+#define  THINBASIC_APPCONFIG_PRODUCTNAME          "thinBasic Application Configuration File\0"
+
+/* THINBASIC_I18N.Dll */
+#ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
+#define  THINBASIC_I18N_VERSIONMAJOR             THIN_VERSIONMAJOR
+#define  THINBASIC_I18N_VERSIONMINOR             THIN_VERSIONMINOR
+#define  THINBASIC_I18N_VERSIONBUILD             THIN_VERSIONBUILD
+#define  THINBASIC_I18N_VERSIONREVISION          THIN_VERSIONREVISION
+#define  THINBASIC_I18N_VERSIONLITERAL           THIN_VERSIONLITERAL
+#else
+#define  THINBASIC_I18N_VERSIONMAJOR             1
+#define  THINBASIC_I18N_VERSIONMINOR                 0
+#define  THINBASIC_I18N_VERSIONBUILD         1
+#define  THINBASIC_I18N_VERSIONREVISION      1
+#define  THINBASIC_I18N_VERSIONLITERAL       "1.0.1.1\0"
+#endif
+#define  THINBASIC_I18N_INTERNALNAME         "thinBasic_I18N\0"
+#define  THINBASIC_I18N_FILEDESCRIPTION      "thinBasic I18N Configuration File Library\0"
+#define  THINBASIC_I18N_ORIGINALFILENAME     "thinBasic_I18N.dll\0"
+#define  THINBASIC_I18N_PRODUCTNAME          "thinBasic I18N Configuration File\0"
+
+/* THINBASIC_WCon.Dll */
+#ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
+#define  THINBASIC_WCON_VERSIONMAJOR             THIN_VERSIONMAJOR
+#define  THINBASIC_WCON_VERSIONMINOR             THIN_VERSIONMINOR
+#define  THINBASIC_WCON_VERSIONBUILD             THIN_VERSIONBUILD
+#define  THINBASIC_WCON_VERSIONREVISION          THIN_VERSIONREVISION
+#define  THINBASIC_WCON_VERSIONLITERAL           THIN_VERSIONLITERAL
+#else
+#define  THINBASIC_WCON_VERSIONMAJOR             1
+#define  THINBASIC_WCON_VERSIONMINOR                 0
+#define  THINBASIC_WCON_VERSIONBUILD         1
+#define  THINBASIC_WCON_VERSIONREVISION      1
+#define  THINBASIC_WCON_VERSIONLITERAL       "1.0.1.1\0"
+#endif
+#define  THINBASIC_WCON_INTERNALNAME         "thinBasic_WCon\0"
+#define  THINBASIC_WCON_FILEDESCRIPTION      "thinBasic WCon Windows Console Library\0"
+#define  THINBASIC_WCON_ORIGINALFILENAME     "thinBasic_WCon.dll\0"
+#define  THINBASIC_WCON_PRODUCTNAME          "thinBasic WCon Windows Console\0"

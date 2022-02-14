@@ -2,7 +2,7 @@
   '=============================================================================
   'File Name   : thinCore.inc
   'Author      : Eros Olmi
-  'Version     : 1.9.16.x
+  'Version     : 1.11.3.x
   'Description : thinBasic external library Interface definitions
   'Web site    : http://www.thinbasic.com
   '=============================================================================
@@ -45,24 +45,31 @@
   '------------------------------------------------------------------------------
   'Global declares
   '------------------------------------------------------------------------------
-  %thinBasic_ForceOverWrite         =  1&   'Used in thinBasic_LoadSymbol to force symbol over writing
+  %thinBasic_ForceOverWrite         =   1&   'Used in thinBasic_LoadSymbol to force symbol over writing
 
-  %VarMainType_IsNumber             = 20&
-  %VarMainType_IsString             = 30&
-  %VarMainType_IsAsciiZ             = 25&
-  %VarMainType_IsVariant            = 50&
+  %VarMainType_IsNumber             =  20&
+  %VarMainType_IsString             =  30&
+  %VarMainType_IsAsciiZ             =  25&
+  %VarMainType_IsVariant            =  50&
+
+  %VarMainType_IsUDT                =  60&   
+  %VarMainType_IsPTR                =  70&   
+  %VarMainType_IsObject             =  80&   
+  %VarMainType_IsClass              =  90&   
+  %VarMainType_IsFunction           =  95&   
+  %VarMainType_IsDispatch           = 100&   
                                     
-  %VarSubType_Byte                  =  1&
-  %VarSubType_Integer               =  2&
-  %VarSubType_Word                  =  3&
-  %VarSubType_DWord                 =  4&
-  %VarSubType_Long                  =  5&
-  %VarSubType_Quad                  =  6&              
-  %VarSubType_Single                =  7& 
-  %VarSubType_Double                =  8&
-  %VarSubType_Currency              =  9&
-  %VarSubType_Ext                   = 10&
-  %VarSubType_Variant               = 50&
+  %VarSubType_Byte                  =   1&
+  %VarSubType_Integer               =   2&
+  %VarSubType_Word                  =   3&
+  %VarSubType_DWord                 =   4&
+  %VarSubType_Long                  =   5&
+  %VarSubType_Quad                  =   6&              
+  %VarSubType_Single                =   7& 
+  %VarSubType_Double                =   8&
+  %VarSubType_Currency              =   9&
+  %VarSubType_Ext                   =  10&
+  %VarSubType_Variant               =  50&
 
 
   '------------------------------------------------------------------------------
@@ -77,16 +84,16 @@
   %thinBasic_ReturnString           = 30&   'Used in thinBasic_LoadSymbol to define a function returning a string
   %thinBasic_ReturnCodeString       = %thinBasic_ReturnString
 
-  %thinBasic_ReturnCodeByte         =  1&
-  %thinBasic_ReturnCodeInteger      =  2&
-  %thinBasic_ReturnCodeWord         =  3&
-  %thinBasic_ReturnCodeDWord        =  4&
-  %thinBasic_ReturnCodeLong         =  5&
-  %thinBasic_ReturnCodeQuad         =  6&
-  %thinBasic_ReturnCodeSingle       =  7& 
-  %thinBasic_ReturnCodeDouble       =  8&
-  %thinBasic_ReturnCodeCurrency     =  9&
-  %thinBasic_ReturnCodeExt          = 10&
+  %thinBasic_ReturnCodeByte         =  1&  : %thinBasic_ReturnByte         =  %thinBasic_ReturnCodeByte    
+  %thinBasic_ReturnCodeInteger      =  2&  : %thinBasic_ReturnInteger      =  %thinBasic_ReturnCodeInteger 
+  %thinBasic_ReturnCodeWord         =  3&  : %thinBasic_ReturnWord         =  %thinBasic_ReturnCodeWord    
+  %thinBasic_ReturnCodeDWord        =  4&  : %thinBasic_ReturnDWord        =  %thinBasic_ReturnCodeDWord   
+  %thinBasic_ReturnCodeLong         =  5&  : %thinBasic_ReturnLong         =  %thinBasic_ReturnCodeLong    
+  %thinBasic_ReturnCodeQuad         =  6&  : %thinBasic_ReturnQuad         =  %thinBasic_ReturnCodeQuad    
+  %thinBasic_ReturnCodeSingle       =  7&  : %thinBasic_ReturnSingle       =  %thinBasic_ReturnCodeSingle  
+  %thinBasic_ReturnCodeDouble       =  8&  : %thinBasic_ReturnDouble       =  %thinBasic_ReturnCodeDouble  
+  %thinBasic_ReturnCodeCurrency     =  9&  : %thinBasic_ReturnCurrency     =  %thinBasic_ReturnCodeCurrency
+  %thinBasic_ReturnCodeExt          = 10&  : %thinBasic_ReturnExt          =  %thinBasic_ReturnCodeExt     
   '------------------------------------------------------------------------------
 
   %thinBasic_BufferType_IsFile      = 0&
@@ -114,6 +121,28 @@
                             ByVal sKey            As String       _
                           ) As Long
 
+  '------------------------------------------------------------------------------
+  Declare Function thinBasic_Init_Isolated                        _
+                          Lib "thinCore.dll"                      _
+                          Alias "thinBasic_Init_Isolated"         _
+                          (                                       _
+                            ByVal hWnd          As Long         , _
+                            ByVal cInstance     As Long         , _
+                            ByVal sKey          As String       , _
+                            ByVal IsolatedPath  As String         _
+                          ) As Long
+  '------------------------------------------------------------------------------
+  Declare Function thinBasic_Init_CheckScript                     _
+                          Lib "thinCore.dll"                      _
+                          Alias "thinBasic_Init_CheckScript"      _
+                          (                                       _
+                            ByVal hWnd          As Long         , _
+                            ByVal cInstance     As Long         , _
+                            ByVal sKey          As String       , _
+                            ByVal IsolatedPath  As String         _
+                          ) As Long
+  '------------------------------------------------------------------------------
+
   Declare Function  thinBasic_Run                                 _
                           Lib "thinCore.dll"                      _
                           Alias "thinBasic_Run"                   _
@@ -136,6 +165,16 @@
                             ByVal hScript         As Long         _
                           ) As Long
 
+
+  '----------------------------------------------------------------------------
+  'thinAir support functions
+  '----------------------------------------------------------------------------
+  Declare Function  thinAir_Function_List                         _
+                          Lib "thinCore.dll"                      _
+                          Alias "thinAir_Function_List"           _
+                          (                                       _
+                            ByVal hTree         As Long           _
+                          ) As Long
 
   '----------------------------------------------------------------------------
   'thinBasic_AddIncludePath
@@ -373,7 +412,7 @@
                           lib "thinCore.DLL"                      _
                           alias "thinBasic_VariableGetInfoEX"     _
                           (                                       _
-                            byval SearchKey   as string         , _
+                            ByVal SearchKey   As String         , _
                             byref MainType    as long           , _   '---ATTENTION: parameter passed BYREF will return info
                             byref SubType     as long           , _   '---ATTENTION: parameter passed BYREF will return info
                             byref IsArray     as long           , _   '---ATTENTION: parameter passed BYREF will return info
@@ -436,6 +475,7 @@
     %MainType_Object          = 80?               : %MainType_IsObject  = %MainType_Object
     %MainType_Class           = 90?               : %MainType_IsClass   = %MainType_Class
     %MainType_Function        = 95?               : %MainType_IsFunction= %MainType_Function
+    %MainType_Dispatch        = 100?              : %MainType_IsDispatch= %MainType_Dispatch
   
 
 
@@ -691,6 +731,20 @@
                             ByVal fName       As String           _
                           ) As Long
 
+
+  '------------------------------------------------------------------------------
+  '---Search function using _ or . as separator between a pre/post function name
+  '   Useful to search for names like MyFun.MyEvent or MyFun_MyEvent
+  '------------------------------------------------------------------------------
+  Declare Function thinBasic_FunctionGetPtr_DottedOrUnderscored   _
+                          Lib "thinCore.DLL"                      _
+                          Alias "thinBasic_FunctionGetPtr_DottedOrUnderscored" _
+                          ( _
+                              ByVal sFunctionPre    As String   , _
+                              ByVal sFunctionPost   As String     _
+                          ) As Long
+  '------------------------------------------------------------------------------
+
   '----------------------------------------------------------------------------
   'thinBasic_FunctionGetPtr
   '----------------------------------------------------------------------------
@@ -853,7 +907,7 @@
                           (                                           _
                             ByVal FunctionPtr   As Long             , _  '---PTR to script function
                             ByVal lModParams    As Long             , _  '---MANDATORY: number of params module is passing
-                            ByVal lModParamsPtr As Long             , _  '---MANDATORY: pointer to a memory area where to find parameters (8 bytes for each parameter)
+                            ByVal lModParamsPtr As Long             , _  '---MANDATORY: pointer to a memory area where to find parameters (10 bytes for each parameter)
                             Optional                                  _  '---If no need to get back script function result value, do not indicate the next 2 parameters
                             ByVal ptrDOUBLE     As Double Ptr       , _  '---Pointer to DOUBLE that will get back script function return value in case of numeric
                             ByVal ptrSTR        As String Ptr         _  '---Pointer to a OLE32 dynamic string handle that will get back script function return value in case of string
@@ -952,6 +1006,24 @@
                           Alias "thinBasic_ParsePtrToSomething"     _
                           (                                         _
                             ByRef VariablePtr As Long               _   '---ATTENTION: parameter passed BYREF will return info
+                          ) As Long
+
+
+  '----------------------------------------------------------------------------
+  'thinBasic_ParsePtrToStringAndLen
+  '----------------------------------------------------------------------------
+  ' Parse a dynamic string (scalar or UDT element) and return:
+  '   - internal variable pointer (if possible)
+  '   - pointer to dynamic string (STRPTR)
+  '   - current string len
+  '----------------------------------------------------------------------------
+  Declare Function thinBasic_ParsePtrToStringAndLen                 _
+                          LIB "thinCore.DLL"                        _
+                          Alias "thinBasic_ParsePtrToStringAndLen"  _
+                          (                                         _
+                            ByRef VariablePtr As Long             , _
+                            ByRef pStr As Long                    , _
+                            ByRef lLen As Long                      _
                           ) As Long
 
   '----------------------------------------------------------------------------
@@ -1206,10 +1278,19 @@
   '
   '----------------------------------------------------------------------------
   Declare Sub       thinBasic_ParseNumber                 Lib "thinCore.DLL" Alias "thinBasic_ParseNumber"                (Result As Ext)
-  Declare Sub       thinBasic_ParseLong                   Lib "thinCore.DLL" Alias "thinBasic_ParseLong"                  (Result As Long)
+  Declare Sub       thinBasic_ParseByte                   Lib "thinCore.DLL" Alias "thinBasic_ParseByte"                  (Result As Byte)
+  Declare Sub       thinBasic_ParseInteger                Lib "thinCore.DLL" Alias "thinBasic_ParseInteger"               (Result As Integer)
+  Declare Sub       thinBasic_ParseWord                   Lib "thinCore.DLL" Alias "thinBasic_ParseWord"                  (Result As Word)
   Declare Sub       thinBasic_ParseDWord                  Lib "thinCore.DLL" Alias "thinBasic_ParseDWord"                 (Result As Dword)
+  Declare Sub       thinBasic_ParseLong                   Lib "thinCore.DLL" Alias "thinBasic_ParseLong"                  (Result As Long)
+  Declare Sub       thinBasic_ParseQuad                   Lib "thinCore.DLL" Alias "thinBasic_ParseQuad"                  (Result As Quad)
+  Declare Sub       thinBasic_ParseSingle                 Lib "thinCore.DLL" Alias "thinBasic_ParseSingle"                (Result As Single)
   Declare Sub       thinBasic_ParseDouble                 Lib "thinCore.DLL" Alias "thinBasic_ParseDouble"                (Result As Double)
+  Declare Sub       thinBasic_ParseExt                    Lib "thinCore.DLL" Alias "thinBasic_ParseExt"                   (Result As Ext)
   Declare Function  thinBasic_ParseLong_Optional          Lib "thinCore.DLL" Alias "thinBasic_ParseLong"                  (Result As Long) As Long
+
+
+
   '---
 
   DECLARE FUNCTION  thinBasic_Parse1Number                LIB "thinCore.DLL" ALIAS "thinBasic_Parse1Number"               () AS EXT
@@ -1309,11 +1390,27 @@
   ' Parse one string expression including possible "(" and ")" before and after the string
   ' This function is the equavalent of the numeric thinBasic_Parse1Number 
   Declare Function  thinBasic_Parse1String                Lib "thinCore.DLL" Alias "thinBasic_Parse1String"               () As String
-
+#If %Pb_Revision >= &H1000
+  Declare Function  thinBasic_Parse1WString               Lib "thinCore.DLL" Alias "thinBasic_Parse1WString"              () As WString
+#EndIf
   '---
   ' Parse one string expression. It also returns the numeric representation of the parsed string in case it represents a valid number
   Declare Function  thinBasic_ParseString                 Lib "thinCore.DLL" Alias "thinBasic_ParseString"                (ByRef sResult As String) As Ext
-
+  '---
+  ' Parse one string expression. It also returns the numeric representation of the parsed string in case it represents a valid number
+  #If (%Pb_Revision And &H1000) 
+  Declare Function  thinBasic_ParseStringZ                Lib "thinCore.DLL" Alias "thinBasic_ParseStringZ"               (ByRef sResult As Stringz) As Ext
+  #EndIf
+  '---
+  ' Parse one Wide string expression. It also returns the numeric representation of the parsed string in case it represents a valid number
+#If %Pb_Revision >= &H1000
+  Declare Function  thinBasic_ParseWString                Lib "thinCore.DLL" Alias "thinBasic_ParseWString"               (ByRef sResult As WString) As Ext
+#EndIf
+  '---
+  ' Parse one Wide string Z expression. It also returns the numeric representation of the parsed string in case it represents a valid number
+#If %Pb_Revision >= &H1000
+  Declare Function  thinBasic_ParseWStringZ               Lib "thinCore.DLL" Alias "thinBasic_ParseWStringZ"              (ByRef sResult As WStringz) As Ext
+#EndIf
   '---
   ' Parse one string expression.
   Declare Sub       thinBasic_ParseStr                    Lib "thinCore.DLL" Alias "thinBasic_ParseStr"                   (ByRef sResult As String)
@@ -1375,14 +1472,14 @@
 
   '----------------------------------------------------------------------------
   Declare Function  thinBasic_CheckEqualType_Mandatory    Lib "thinCore.DLL" Alias "thinBasic_CheckEqualType_Mandatory"   () As Long
-    %Equal_EQ             = 1520&   ' =
-    %Equal_PLUSEQUAL      = 1521&   ' +=
-    %Equal_MINUSEQUAL     = 1522&   ' -=
-    %Equal_MULTIPLYEQUAL  = 1523&   ' *=
-    %Equal_DIVIDEEQUAL    = 1524&   ' /=
-    %Equal_IDIVIDEEQUAL   = 1525&   ' \=
-    %Equal_CONCEQUAL      = 1526&   ' &=
-    %Equal_POINTEQUAL     = 1527&   ' .=
+    %Equal_EQ             = 2021&   ' =
+    %Equal_PLUSEQUAL      = 2022&   ' +=
+    %Equal_MINUSEQUAL     = 2023&   ' -=
+    %Equal_MULTIPLYEQUAL  = 2024&   ' *=
+    %Equal_DIVIDEEQUAL    = 2025&   ' /=
+    %Equal_IDIVIDEEQUAL   = 2026&   ' \=
+    %Equal_CONCEQUAL      = 2027&   ' &=
+    %Equal_POINTEQUAL     = 2028&   ' .=
   '----------------------------------------------------------------------------
 
   '----------------------------------------------------------------------------
@@ -1399,9 +1496,14 @@
   'thinBasic_GetRunTimeInfo
   '----------------------------------------------------------------------------
   ' The following information can be taken:
-  '  "SCRIPT_PATH"  Path to script
-  '  "APP_PATH"     Path to thinBasic
-  '  "HWND"         Handle to main thinBasic window
+  '  "SCRIPT_PATH"        Path to script
+  '  "APP_PATH"           Path to thinBasic
+  '  "HWND"               Handle to main thinBasic window
+  '  "SCRIPT_PATH"
+  '  "APP_PATH"
+  '  "APP_NAME"
+  '  "APP_SOURCENAME"
+  '  "APP_SOURCEFULLNAME" 
   '----------------------------------------------------------------------------
   DECLARE FUNCTION  thinBasic_GetRunTimeInfo    LIB "thinCore.DLL" ALIAS "thinBasic_GetRunTimeInfo"   (BYVAL InfoName AS STRING) AS STRING
   '----------------------------------------------------------------------------
@@ -1412,6 +1514,12 @@
   '----------------------------------------------------------------------------
   Declare Function  thinBasic_ScriptIsObfuscated    Lib "thinCore.DLL" Alias "thinBasic_ScriptIsObfuscated"   () As Long
   '----------------------------------------------------------------------------
+
+  '------------------------------------------------------------------------------
+  Declare Function  thinBasic_Resources_Count       Lib "thinCore.DLL" Alias "thinBasic_Resources_Count"      () As Long
+  Declare Function  thinBasic_Resources_GetFile     Lib "thinCore.DLL" Alias "thinBasic_Resources_GetFile"    (ByVal lIndex As Long) As String
+  Declare Function  thinBasic_Resources_GetBuffer   Lib "thinCore.DLL" Alias "thinBasic_Resources_GetBuffer"  (ByVal lIndex As Long) As String
+  '------------------------------------------------------------------------------
 
 
   '----------------------------------------------------------------------------
@@ -1557,7 +1665,8 @@
                                       ByRef Level_Select As Long      , _
                                       ByRef Level_For    As Long      , _
                                       ByRef Level_While  As Long      , _
-                                      ByRef Level_Do     As Long        _
+                                      ByRef Level_Do     As Long      , _
+                                      ByRef Level_Try    As Long        _
                            ) As Long
 
   '------------------------------------------------------------------------------
@@ -1861,7 +1970,7 @@
   ' extracted into a temp directory created at script runtime and
   ' destroyed when script stop execution
   '----------------------------------------------------------------------------
-  ' If script is bundled also Isoaltion is %TRUE
+  ' If script is bundled also Isolation is %TRUE
   ' In future maybe execution of script and extraction of modules will
   ' take place directly from memory
   '----------------------------------------------------------------------------
@@ -1881,4 +1990,29 @@
                             Alias "thinBasic_IsolationPath"             _
                             (                                           _
                             ) As String
+
+
+  '----------------------------------------------------------------------------
+  '----------------------------------------------------------------------------
+  'thinBasic Hash function working with string storage
+  ' To be used by module to have a common hash storage arsenal
+  '----------------------------------------------------------------------------
+  Declare Function thinBasic_Hash_New       Lib "thinCore.dll" Alias "thinBasic_Hash_New"       (Optional ByVal lCount As Long) As Long
+  Declare Function thinBasic_Hash_Free      Lib "thinCore.dll" Alias "thinBasic_Hash_Free"      (ByVal pHash As Long) As Long
+  Declare Function thinBasic_Hash_Count     Lib "thinCore.dll" Alias "thinBasic_Hash_Count"     (ByVal pHash As Long) As Long
+  Declare Function thinBasic_Hash_Clone     Lib "thinCore.dll" Alias "thinBasic_Hash_Clone"     (ByVal pHash As Long) As Long
+  Declare Function thinBasic_Hash_Clear     Lib "thinCore.dll" Alias "thinBasic_Hash_Clear"     (ByVal pHash As Long) As Long
+  Declare Function thinBasic_Hash_Validate  Lib "thinCore.dll" Alias "thinBasic_Hash_Validate"  (ByVal pHash As Long) As Long
+  Declare Function thinBasic_Hash_CapGet    Lib "thinCore.dll" Alias "thinBasic_Hash_CapGet"    (ByVal pHash As Long) As Long
+  Declare Function thinBasic_Hash_CapSet    Lib "thinCore.dll" Alias "thinBasic_Hash_CapSet"    (ByVal pHash As Long, ByVal lCap As Long) As Long
+  Declare Function thinBasic_Hash_GetKeys   Lib "thinCore.dll" Alias "thinBasic_Hash_GetKeys"   (ByVal pHash As Long, Optional ByVal sSep As String) As String
+  Declare Function thinBasic_Hash_Set       Lib "thinCore.dll" Alias "thinBasic_Hash_Set"       (ByVal pHash As Long, ByVal sKey As String, ByVal sData As String) As Long
+  Declare Function thinBasic_Hash_Get       Lib "thinCore.dll" Alias "thinBasic_Hash_Get"       (ByVal pHash As Long, ByVal sKey As String) As String
+  Declare Function thinBasic_Hash_GetPtr    Lib "thinCore.dll" Alias "thinBasic_Hash_GetPtr"    (ByVal pHash As Long, ByVal sKey As String) As Long
+  Declare Function thinBasic_Hash_Del       Lib "thinCore.dll" Alias "thinBasic_Hash_Del"       (ByVal pHash As Long, ByVal sKey As String) As Long
+  Declare Function thinBasic_Hash_Exists    Lib "thinCore.dll" Alias "thinBasic_Hash_Exists"    (ByVal pHash As Long, ByVal sKey As String) As Long
+
+  Declare Function thinBasic_File_Load      Lib "thinCore.dll" Alias "thinBasic_File_Load"      (ByVal sFileName As String) As String
+  Declare Function thinBasic_File_Save      Lib "thinCore.dll" Alias "thinBasic_File_Save"      (ByVal sFileName As String, ByVal sBuffer As String) As Long
+  Declare Function thinBasic_File_Exists    Lib "thinCore.dll" Alias "thinBasic_File_Exists"    (ByVal sFileName As String) As Long
     
