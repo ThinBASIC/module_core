@@ -23,7 +23,7 @@
 
 /* COMMON FOR ALL MODULES */
 #define  THIN_COMMON_COMPANYNAME      "thinBasic\0"
-#define  THIN_COMMON_LEGALCOPYRIGHT   "Copyright 2004-2020 by thinBasic\0"
+#define  THIN_COMMON_LEGALCOPYRIGHT   "Copyright 2004-2023 by thinBasic\0"
 #define  THIN_COMMON_COMMENT          "Support site: https://www.thinbasic.com\0"
 
 
@@ -280,6 +280,25 @@
 #define  THINBASIC_COMM_ORIGINALFILENAME        "thinBasic_COMM.dll\0"
 #define  THINBASIC_COMM_PRODUCTNAME             "thinBasic Serial Communication File Library\0"
 
+/* THINBASIC_CSV.DLL */
+#ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
+#define  THINBASIC_CSV_VERSIONMAJOR             THIN_VERSIONMAJOR
+#define  THINBASIC_CSV_VERSIONMINOR             THIN_VERSIONMINOR
+#define  THINBASIC_CSV_VERSIONBUILD             THIN_VERSIONBUILD
+#define  THINBASIC_CSV_VERSIONREVISION          THIN_VERSIONREVISION
+#define  THINBASIC_CSV_VERSIONLITERAL           THIN_VERSIONLITERAL
+#else
+#define  THINBASIC_CSV_VERSIONMAJOR             1
+#define  THINBASIC_CSV_VERSIONMINOR                 0
+#define  THINBASIC_CSV_VERSIONBUILD         1
+#define  THINBASIC_CSV_VERSIONREVISION      1
+#define  THINBASIC_CSV_VERSIONLITERAL       "1.0.1.1\0"
+#endif
+#define  THINBASIC_CSV_INTERNALNAME             "thinBasic_CSV\0"
+#define  THINBASIC_CSV_FILEDESCRIPTION          "thinBasic CSV File Library\0"
+#define  THINBASIC_CSV_ORIGINALFILENAME         "thinBasic_CSV.dll\0"
+#define  THINBASIC_CSV_PRODUCTNAME              "thinBasic CSV File Library\0"
+
 
 /* THINBASIC_CURL.DLL */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
@@ -491,6 +510,25 @@
 #define  THINBASIC_MMF_FILEDESCRIPTION          "thinBasic MMF Memory Mapped File Library\0"
 #define  THINBASIC_MMF_ORIGINALFILENAME         "thinBasic_MMF.dll\0"
 #define  THINBASIC_MMF_PRODUCTNAME              "thinBasic MMF File\0"
+
+/* THINBASIC_LIBXL.DLL */
+#ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
+#define  THINBASIC_LIBXL_VERSIONMAJOR             THIN_VERSIONMAJOR
+#define  THINBASIC_LIBXL_VERSIONMINOR             THIN_VERSIONMINOR
+#define  THINBASIC_LIBXL_VERSIONBUILD             THIN_VERSIONBUILD
+#define  THINBASIC_LIBXL_VERSIONREVISION          THIN_VERSIONREVISION
+#define  THINBASIC_LIBXL_VERSIONLITERAL           THIN_VERSIONLITERAL
+#else
+#define  THINBASIC_LIBXL_VERSIONMAJOR            1
+#define  THINBASIC_LIBXL_VERSIONMINOR        0
+#define  THINBASIC_LIBXL_VERSIONBUILD        1
+#define  THINBASIC_LIBXL_VERSIONREVISION     1
+#define  THINBASIC_LIBXL_VERSIONLITERAL      "1.0.1.1\0"
+#endif
+#define  THINBASIC_LIBXL_INTERNALNAME            "thinBasic_LIBXL\0"
+#define  THINBASIC_LIBXL_FILEDESCRIPTION         "thinBasic 3rd party Excel file library\0"
+#define  THINBASIC_LIBXL_ORIGINALFILENAME        "thinBasic_LIBXL.dll\0"
+#define  THINBASIC_LIBXL_PRODUCTNAME             "thinBasic 3rd party Excel file library\0"
 
 /* THINBASIC_LL.DLL */
 #ifdef FORCE_VERSION_EQUAL_FOR_ALL_MODULES
